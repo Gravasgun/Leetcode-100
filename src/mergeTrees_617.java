@@ -26,15 +26,19 @@ class mergeTreeNode {
 
 public class mergeTrees_617 {
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
+        //如果root1为空，直接返回root2
         if (root1 == null) {
             return root2;
         }
+        //如果root2为空，直接返回root1
         if (root2 == null) {
             return root1;
         }
+        //都不为空，值相加
         root1.val += root2.val;
+        //递归，覆盖root1这棵树
         root1.left = mergeTrees(root1.left, root2.left);
-        root1.right = mergeTrees(root1.right, root2.right);
+        //递归结束，直接返回root1
         return root1;
     }
 }
